@@ -1,0 +1,13 @@
+version: '3'
+services:
+  menextract2pdf:
+    build: .
+    image: menotexport:latest
+    volumes:
+      - "~/Desktop/:/out"
+      - "~/Library/Application Support/Mendeley Desktop/:/Users/$USER/Library/Application Support/Mendeley Desktop/"
+    entrypoint:
+      - ./mentoexport.sh
+      - "/Users/$USER/Library/Application Support/Mendeley Desktop/"
+      - "/out"
+      - "-mns"
